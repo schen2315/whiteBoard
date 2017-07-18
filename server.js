@@ -2,7 +2,7 @@ var express = require('express');
 var socket = require('socket.io');
 var path = require('path');
 var http = require('http');
-
+var hello = true;
 var app = express();
 
 app.use(express.static(path.join(__dirname, '/')));
@@ -15,6 +15,9 @@ server.listen(8080);
 var io = socket(server);
 var points = [];
 
+if(hello) {
+	console.log("hello");
+}
 io.on('connection', onconnect);
 console.log('connecting to port 8080');
 
